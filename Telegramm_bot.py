@@ -6,9 +6,6 @@ from pytimeparse import parse
 load_dotenv()
 
 
-bot = ptbot.Bot(os.environ['TG_TOKEN'])
-
-
 def render_progressbar(total, iteration, prefix='', suffix='', length=30, fill='█', zfill='░'):
     iteration = min(total, iteration)
     percent = "{0:.1f}"
@@ -31,6 +28,8 @@ def wait(chat_id, question):
     bot.create_countdown(parse(question), notify_progress, author_id=chat_id, message_id=message_id, question=question)
 
 def main():
+
+    bot = ptbot.Bot(os.environ['TG_TOKEN'])
 
     bot.reply_on_message(wait)
 
