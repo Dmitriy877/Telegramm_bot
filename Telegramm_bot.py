@@ -4,6 +4,7 @@ import ptbot
 from dotenv import load_dotenv
 from pytimeparse import parse
 
+
 def render_progressbar(total, iteration, prefix='', suffix='', length=30, fill='█', zfill='░'):
     iteration = min(total, iteration)
     percent = "{0:.1f}"
